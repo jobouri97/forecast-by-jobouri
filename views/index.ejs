@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="/styles/indexStyle.css">
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="form-card">
+            <h1>☁️ Weather Forecast</h1>
+
+            <form action="/weather" method="POST">
+
+                <div class="input-group">
+                    <label for="lat">Latitude</label>
+                    <input type="text" id="lat" name="lat" placeholder="e.g. 33.8938" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="lon">Longitude</label>
+                    <input type="text" id="lon" name="lon" placeholder="e.g. 35.5018" required>
+                </div>
+
+                <button type="submit">
+                    Get Weather →
+                </button>
+
+            </form>
+        </div>
+    </div>
+</body>

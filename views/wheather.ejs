@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles/wheatherStyle.css">
+</head>
+
+<body>
+  <% if (locals.error) { %>
+    <div class="error-container">
+      <div class="error-icon">😔</div>
+      <h2>
+        <%= error %>
+      </h2>
+      <a href="/" class="back-btn">
+        ← Go Back
+      </a>
+    </div>
+    <% } %>
+      <% if (locals.current) { %>
+        <div class="container">
+
+          <div class="toptop-bar">
+            <div class="back-btn-div">
+              <a href="/" class="back-btn">
+                ← Back
+              </a>
+            </div>
+
+            <div class="location-title">
+              <h1>
+                <%= cityName %>
+              </h1>
+              <p>
+                <%= countryName %>
+              </p>
+            </div>
+          </div>
+          <div class="top-blocks">
+
+            <div class="item top temperature-card">
+              <div class="weather-icon">
+                <%= current.icon %>
+              </div>
+
+              <div class="temperature-main">
+                <%= current.temperature_2m %><span>°C</span>
+              </div>
+
+              <div class="feels-like-box">
+                Feels like <strong>
+                  <%= current.apparent_temperature %>°C
+                </strong>
+              </div>
+            </div>
+
+            <div class="item top info-card humidity-card">
+              <div class="info-icon">💧</div>
+              <p class="info-label">Humidity</p>
+              <h2 class="info-value">
+                <%= current.relative_humidity_2m %><span>%</span>
+              </h2>
+            </div>
+
+            <div class="item top info-card wind-card">
+              <div class="info-icon">🌬️</div>
+              <p class="info-label">Wind Speed</p>
+              <h2 class="info-value">
+                <%= current.wind_speed_10m %><span> km/h</span>
+              </h2>
+            </div>
+          </div>
+          <div class="bottom-blocks">
+            <% forecast.forEach(day=> { %>
+              <div class="item forecast-card">
+                <div class="forecast-day">
+                  <%= day.date %>
+                </div>
+
+                <div class="forecast-icon">
+                  <%= day.icon %>
+                </div>
+
+                <div class="forecast-temp">
+                  <span class="max-temp">
+                    <%= day.max %>°
+                  </span>
+                  <span class="min-temp">
+                    <%= day.min %>°
+                  </span>
+                </div>
+              </div>
+              <% }) %>
+          </div>
+        </div>
+        <% } %>
+</body>
+
+</html>
