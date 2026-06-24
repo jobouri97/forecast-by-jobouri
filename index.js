@@ -49,7 +49,9 @@ async function getCountryName(lat, lon) {
                 format: "json"
             },
             headers: {
-                "User-Agent": "WeatherApp/1.0"
+                "User-Agent": "WeatherApp/1.0",
+                "Accept-Language": "en"
+
             }
         }
     );
